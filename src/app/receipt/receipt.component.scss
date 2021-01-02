@@ -1,0 +1,27 @@
+@import '~@kirbydesign/designsystem/scss/utils';
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 4px;
+  padding: 0 16px;
+}
+
+kirby-segmented-control {
+  margin-bottom: 16px;
+}
+
+.home__content--from {
+  margin-bottom: size('m');
+}
+
+.home__content--to {
+  margin: size('m') 0;
+}
+
+.home__cta {
+  margin-top: size('xxl');
+  text-align: center;
+}

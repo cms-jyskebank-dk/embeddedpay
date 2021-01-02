@@ -1,0 +1,56 @@
+<kirby-page title="Betal regning" defaultBackHref="home" (enter)="onEnter()">
+  <kirby-page-content>
+    <!-- Fra -->
+    <section class="home__content--from">
+      <h2>Fra</h2>
+      <div>
+        <kirby-form-field label="Konto">
+          <kirby-dropdown
+            placeholder="Vælg fra konto"
+            [items]="fromAccounts"
+            [(ngModel)]="payBill.fromAccount"
+            expand="block"
+          ></kirby-dropdown>
+        </kirby-form-field>
+
+        <kirby-form-field label="Beløb">
+          <input kirby-input [(ngModel)]="payBill.amount" />
+        </kirby-form-field>
+      </div>
+    </section>
+    <kirby-divider></kirby-divider>
+
+    <!-- Til -->
+    <section class="home__content--to">
+      <h2>Til</h2>
+      <span class="label">Korttype</span>
+      <kirby-segmented-control
+        [items]="cardTypes"
+        [selectedIndex]="defaultCardType"
+        (segmentSelect)="onCardTypeSelect($event)"
+      ></kirby-segmented-control>
+
+      <kirby-form-field label="Betalings-ID">
+        <input kirby-input [(ngModel)]="payBill.paymentId" />
+      </kirby-form-field>
+
+      <kirby-form-field label="Kreditor">
+        <input kirby-input [(ngModel)]="payBill.creditor" />
+      </kirby-form-field>
+
+      <kirby-form-field label="Betalingsdato">
+        <input kirby-input [(ngModel)]="payBill.paymentDate" />
+      </kirby-form-field>
+    </section>
+    <kirby-divider></kirby-divider>
+
+    <!-- cta -->
+    <section class="home__cta">
+      <!-- <kirby-slide-button
+        [text]="'Betal'"
+        (slideDone)="onPayBill()"
+      ></kirby-slide-button> -->
+      <button kirby-button size="lg" (click)="onPayBill()">Betal</button>
+    </section>
+  </kirby-page-content>
+</kirby-page>

@@ -1,0 +1,16 @@
+<kirby-page title="Velkommen" defaultBackHref="/" [hideBackButton]="true">
+  <kirby-page-content>
+    <section class="home__content">
+      <p>Dette er et eksempel website lavet i Angular, som benytter Kirby designsystem.</p>
+    </section>
+
+    <section class="home__cta">
+      <button kirby-button size="lg" routerLink="/requestpayment">
+        Anmod om betaling !!
+      </button>
+      <button kirby-button size="lg" routerLink="/acceptpayment">
+        Betale anmodninger &nbsp;<kirby-badge *ngIf="showbadge" themeColor="danger">{{ badgecount }}</kirby-badge>
+      </button>
+    </section>
+  </kirby-page-content>
+</kirby-page>

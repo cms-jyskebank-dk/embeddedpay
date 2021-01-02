@@ -1,0 +1,41 @@
+<kirby-page title="Betaling registreret" defaultBackHref="pay-bill">
+  <kirby-page-content>
+    <!-- Fra -->
+    <section class="home__content--from">
+      <h2>Fra</h2>
+      <kirby-item>
+        <h3>Konto</h3>
+        <data slot="end">{{ payBill.fromAccount }}</data>
+      </kirby-item>
+      <kirby-item>
+        <h3>Beløb</h3>
+        <data slot="end">{{ payBill.amount }}</data>
+      </kirby-item>
+    </section>
+    <kirby-divider></kirby-divider>
+
+    <!-- Til -->
+    <section class="home__content--to">
+      <h2>Til</h2>
+      <kirby-item>
+        <h3>Korttype</h3>
+        <data slot="end">{{ payBill?.cardType?.text }}</data>
+      </kirby-item>
+      <kirby-item>
+        <h3>Kreditor</h3>
+        <data slot="end">{{ payBill.creditor }}</data>
+      </kirby-item>
+      <kirby-item>
+        <h3>Betalingsdato</h3>
+        <data slot="end">{{ payBill.paymentDate }}</data>
+      </kirby-item>
+    </section>
+
+    <!-- cta -->
+    <section class="home__cta">
+      <button kirby-button size="lg" (click)="onDone()">
+        Tilbage til forsiden
+      </button>
+    </section>
+  </kirby-page-content>
+</kirby-page>

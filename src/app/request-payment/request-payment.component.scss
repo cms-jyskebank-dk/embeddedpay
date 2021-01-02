@@ -1,0 +1,27 @@
+@import '~@kirbydesign/designsystem/scss/utils';
+
+.home__content {
+
+}
+
+.home__cta {
+  //margin-top: size('xxl');
+  text-align: center;
+}
+
+.flag {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  &.success {
+    background: var(--kirby-success);
+  }
+  &.warning {
+    background: var(--kirby-warning);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 2px;
+  }
+}

@@ -1,0 +1,41 @@
+<kirby-page defaultBackHref="/" [hideBackButton]="false">
+  <kirby-page-content>
+    <section class="home__content">
+      <h1>Familiekonto</h1>
+      <p>Saldo: 123.45,00</p>
+    </section>
+
+    <section class="home__content">
+      <p>Dette er en demo, der illustrerer hvordan mobilpay funktionalitet
+        kan indlejres i en kontooversigt, så funktionalitetet bliver bedre integreret
+        og enklere for brugerne.
+      </p>
+      <p>For hver enkelt postering kan der swipes mod højre, 
+        hvor der så kan anmodes om betalinger - eller betalinger kan deles a la 'weshare'
+      </p>
+    </section>
+
+
+
+    <section class="home__cta">
+        <h2>December</h2>
+        <kirby-list [items]="items" showDivider="true" [swipeActions]="swipeActions">
+          <kirby-item *kirbyListItemTemplate="let item">
+            <div slot="outside">
+              <div class="flag success" *ngIf="item.flagged"></div>
+            </div>
+            <kirby-label>
+              <h3>{{ item.title }}</h3>
+              <p subtitle>{{item.subTitle}}</p>
+            </kirby-label>
+            <kirby-label slot='end'>
+              <data class="kirby-text-bold">{{ item.amount }}</data>
+            </kirby-label>
+          </kirby-item>
+        </kirby-list>
+
+    </section>
+
+
+  </kirby-page-content>
+</kirby-page>

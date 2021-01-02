@@ -1,0 +1,33 @@
+
+  <kirby-page-title>Anmod om betaling af udgift</kirby-page-title>
+
+  <section>
+  <p>Detaljerne for det beløb du anmoder om:</p>
+  <kirby-item>
+      <kirby-avatar overlay="true" slot="start">
+        <kirby-icon name="moneybag"></kirby-icon>
+      </kirby-avatar>
+      <h3>{{ paymentrequest.title }}</h3>
+      <data slot="end" value="paymentrequest.amount">{{ paymentrequest.amount }}</data>
+    </kirby-item>
+  </section>
+
+  <p></p>
+
+  <section> 
+    <p>Besked til modtager</p>
+    <kirby-form-field>
+      <textarea kirby-textarea placeholder="Indtast evt. en besked til modtager" [(ngModel)]="paymentrequest.description"></textarea>
+    </kirby-form-field>
+  </section>
+  
+  
+  <section> 
+    <button attentionLevel="1" kirby-button (click)="onAcceptRequest()">
+      OK
+    </button>
+    <button attentionLevel="2" kirby-button (click)="onRejectRequest()">
+      Afvis
+    </button>
+  </section>
+  
