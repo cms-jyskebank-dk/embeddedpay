@@ -1,12 +1,12 @@
-# Christmas Coding 2020
+# Embedded payments
 Dette projekt er et Angular Website med Kirby designsystem.
 
 Websitet formål er at vise hvordan enkelte Kirby komponenter kan bruges i Angular. Den består af følgende sider
 * Velkommen
-* Betal regning
-* Betaling registreret
+* Anmod om betalinger
+* Betale anmodninger
 
-Der er ingen form for backend services, da hensigten er af frontend udvikling.
+Der er ingen form for backend services, da hensigten er frontend udvikling.
 
 ---
 ## Projekt start
@@ -36,23 +36,6 @@ Følgende beskrives kort de enkelte sider på websitet. Alle sider benytter en K
 **Velkommen** siden er landingpage for websitet. Den består af en kort beskrivelse af websitet og en knap der navigerer til **Betal regning** siden.
 
 Komponenten er i mappen  ``` src/app/home ```
-
-### Betal regning
-**Betal regning** siden giver mulighed for brugeren kan indtaste oplysninger omkring en betaling. Her er 
-benyttet Kirby komponenter i videst muligt omfang. Det er muligt at bruge Kirby komponenter i kombination med egen HTL/CSS kode, hvilket er benyttet på denne side.
-
-Komponenten er i mappen  ``` src/app/pay-bill ```
-
-### Betaling registreret
-**Betaling registreret** er en kvittering side, med en opsummering af ens betaling. 
-
-Komponenten er i mappen  ``` src/app/receipt ```
-
----
-## Store
-Oplysninger fra **Betal regning** skal overføres til **Betaling registreret** siden. For at kunne gøre dette er der lavet en Angular service, som kan gemme de indtastede oplysninger og hente dem igen. 
-
-Servicen er i typescript filen  ``` src/app/services/pay-bill.service.ts ```
 
 ---
 ## Routing
