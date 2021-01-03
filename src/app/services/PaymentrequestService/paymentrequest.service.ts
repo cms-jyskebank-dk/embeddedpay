@@ -1,7 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { PaymentrequestItem } from './paymentrequest.service.interfaces';
 
-import { AccountService } from '../AccountService/account.service';
 import { ThrowStmt } from '@angular/compiler';
 
 
@@ -13,14 +12,13 @@ export class PaymentrequestService {
 
   public PaymentRequestRemoved: EventEmitter<PaymentrequestItem> = new EventEmitter<PaymentrequestItem>();
 
-  constructor(private accountservice: AccountService) {}
+  constructor() {}
 
   reomvePaymentRequest(id: number) {
     let index = this.requestedPayments.findIndex(d => d.id === id); 
     let deletedrequest = this.requestedPayments[index];
     this.requestedPayments.splice(index, 1); 
     this.PaymentRequestRemoved.emit(deletedrequest);
-    this.accountservice.unflagAccountItem(id);
   }
   
   setPaymentRequest(requestedItem: PaymentrequestItem) {

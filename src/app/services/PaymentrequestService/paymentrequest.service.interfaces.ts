@@ -7,7 +7,7 @@ export interface PaymentrequestItem {
   amount: string;
   detail: number;
   flagged: boolean;
-  color: string;
+  deposit: boolean;
   payee: string;
   description: string;
 }

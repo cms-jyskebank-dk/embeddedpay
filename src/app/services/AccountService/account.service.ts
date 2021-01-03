@@ -35,7 +35,7 @@ export class AccountService {
         amount: '-132,00',
         detail: 225,
         flagged: false,
-        color: 'default',
+        deposit: false,
       },
       {
         id: 1,
@@ -44,7 +44,7 @@ export class AccountService {
         amount: '95,25',
         detail: -3,
         flagged: false,
-        color: 'light',
+        deposit: false,
       },
       {
         id: 2,
@@ -53,7 +53,7 @@ export class AccountService {
         amount: '24.75',
         detail: -115,
         flagged: false,
-        color: 'white',
+        deposit: false,
       },
     ];
   }

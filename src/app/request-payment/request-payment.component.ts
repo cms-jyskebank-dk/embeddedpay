@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ListSwipeAction } from '@kirbydesign/designsystem';
-import { ToastController, ToastConfig, ModalController, ModalConfig } from '@kirbydesign/designsystem';
+import { ModalController, ModalConfig } from '@kirbydesign/designsystem';
 import { AccountService } from '../services/AccountService/account.service';
 import { AccountItem } from '../services/AccountService/account.service.interfaces';
-//import { PaymentrequestService } from '../services/PaymentrequestService//paymentrequest.service';
-//import { PaymentrequestItem } from '../services/PaymentrequestService/paymentrequest.service.interfaces';
 import { RequestPaymentModalComponent } from './request-payment-modal.component'
 
 @Component({
@@ -17,9 +16,9 @@ export class RequestPaymentComponent implements OnInit {
   items: AccountItem[] = null;
   selecteditem: AccountItem = null;
 
-  constructor(private toastController: ToastController, 
-    private accountService: AccountService,
-    private modalController: ModalController) {}
+  constructor(private accountService: AccountService,
+    private modalController: ModalController,
+    private router: Router) {}
 
   ngOnInit(): void {
     this.items = this.accountService.accountList;
@@ -33,7 +32,7 @@ export class RequestPaymentComponent implements OnInit {
       type: 'warning',
       icon: 'link',
       onSelected: (item) => this.onAnmodItem(item),
-      isDisabled: false,
+      isDisabled: (item) => item.deposit,
     },
     {
       position: 'left',
@@ -41,10 +40,9 @@ export class RequestPaymentComponent implements OnInit {
       icon: 'share',
       type: 'success',
       onSelected: (item) => this.onFlagItem(item),
-      isDisabled: false,
+      isDisabled: (item) => item.deposit,
     },
   ];
-
   
   private onAnmodItem(item: any): void {
     item.flagged = !item.flagged;
@@ -53,14 +51,7 @@ export class RequestPaymentComponent implements OnInit {
   }
 
   private onFlagItem(item: any): void {
-    item.flagged = !item.flagged;
-    const flagState = item.flagged ? 'flagged' : 'un-flagged';
-    const config: ToastConfig = {
-      message: `Item '${item.title}' has been ${flagState}.`,
-      messageType: 'success',
-      durationInMs: 1500,
-    };
-    this.toastController.showToast(config);
+    this.router.navigate(['sharepayment']);
   }
 
   private showModal() {

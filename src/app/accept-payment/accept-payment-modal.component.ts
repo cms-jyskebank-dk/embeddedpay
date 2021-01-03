@@ -3,6 +3,7 @@ import { COMPONENT_PROPS } from '@kirbydesign/designsystem';
 
 import { Modal } from '@kirbydesign/designsystem';
 
+import { AccountService } from '../services/AccountService/account.service';
 import { AccountItem } from '../services/AccountService/account.service.interfaces';
 import { PaymentrequestService } from '../services/PaymentrequestService//paymentrequest.service';
 import { PaymentrequestItem } from '../services/PaymentrequestService/paymentrequest.service.interfaces';
@@ -17,13 +18,14 @@ export class AcceptPaymentModalComponent {
   constructor(
         @Optional() @SkipSelf() private modal: Modal, 
         @Inject(COMPONENT_PROPS) private componentProps,
-        private paymentrequestservice: PaymentrequestService) 
+        private paymentrequestservice: PaymentrequestService,
+        private accountservice: AccountService) 
     {
       this.paymentrequest = componentProps.prop1;
       console.log(this.paymentrequest);
     }
 
-    private Map(accountitem: AccountItem): PaymentrequestItem {
+    private Map(accountitem: PaymentrequestItem): PaymentrequestItem {
       return {
         id: accountitem.id,
         title: accountitem.title,
@@ -31,14 +33,18 @@ export class AcceptPaymentModalComponent {
         amount: accountitem.amount,
         detail: accountitem.detail,
         flagged: accountitem.flagged,
-        color: accountitem.color,
-        payee: "",
-        description:"",
+        deposit: accountitem.deposit,
+        payee: accountitem.payee,
+        description:accountitem.description,
       };
     }
 
   onAcceptRequest() {
     this.paymentrequestservice.reomvePaymentRequest(this.paymentrequest.id);
+    this.accountservice.unflagAccountItem(this.paymentrequest.id);
+    let newDeposit = this.Map(this.paymentrequest);
+    newDeposit.deposit = true;
+    this.accountservice.addAccountItem(newDeposit);
     this.modal.close();
   }
 

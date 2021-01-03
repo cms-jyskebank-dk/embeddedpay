@@ -3,7 +3,6 @@ import { COMPONENT_PROPS } from '@kirbydesign/designsystem';
 
 import { Modal } from '@kirbydesign/designsystem';
 
-import { AccountItem } from '../services/AccountService/account.service.interfaces';
 import { PaymentrequestService } from '../services/PaymentrequestService//paymentrequest.service';
 import { PaymentrequestItem } from '../services/PaymentrequestService/paymentrequest.service.interfaces';
 
@@ -18,22 +17,8 @@ export class RequestPaymentModalComponent {
     @Optional() @SkipSelf() private modal: Modal, 
     @Inject(COMPONENT_PROPS) private componentProps,
     private paymentrequestservice: PaymentrequestService) {
-      this.paymentrequest = this.Map(componentProps.prop1);
+      this.paymentrequest = componentProps.prop1 as PaymentrequestItem;
       //console.log(this.paymentrequest);
-    }
-
-    private Map(accountitem: AccountItem): PaymentrequestItem {
-      return {
-        id: accountitem.id,
-        title: accountitem.title,
-        subTitle: accountitem.subTitle,
-        amount: accountitem.amount,
-        detail: accountitem.detail,
-        flagged: accountitem.flagged,
-        color: accountitem.color,
-        payee: "",
-        description:"",
-      };
     }
 
   onHideModal() {

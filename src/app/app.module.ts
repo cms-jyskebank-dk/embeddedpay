@@ -8,6 +8,7 @@ import { RequestPaymentComponent } from './request-payment/request-payment.compo
 import { RequestPaymentModalComponent } from './request-payment/request-payment-modal.component';
 import { AcceptPaymentComponent } from './accept-payment/accept-payment.component';
 import { AcceptPaymentModalComponent } from './accept-payment/accept-payment-modal.component';
+import { SharePaymentComponent } from './share-payment/share-payment.component';
 import { PayBillComponent } from './pay-bill/pay-bill.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { HomeComponent } from './home/home.component';
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     RequestPaymentModalComponent,
     AcceptPaymentComponent,
     AcceptPaymentModalComponent,
+    SharePaymentComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, KirbyModule],
   providers: [{ provide: LOCALE_ID, useValue: 'da-DK' }],

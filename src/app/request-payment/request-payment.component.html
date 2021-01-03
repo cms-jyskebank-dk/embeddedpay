@@ -29,7 +29,8 @@
               <p subtitle>{{item.subTitle}}</p>
             </kirby-label>
             <kirby-label slot='end'>
-              <data class="kirby-text-bold">{{ item.amount }}</data>
+              <data *ngIf="item.deposit" class="kirby-text-bold deposit">{{ item.amount }}</data>
+              <data *ngIf="!item.deposit" class="kirby-text-bold">{{ item.amount }}</data>
             </kirby-label>
           </kirby-item>
         </kirby-list>

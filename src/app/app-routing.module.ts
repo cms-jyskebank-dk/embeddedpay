@@ -5,6 +5,7 @@ import { PayBillComponent } from './pay-bill/pay-bill.component';
 import { ReceiptComponent } from './receipt/receipt.component';
 import { RequestPaymentComponent } from './request-payment/request-payment.component';
 import { AcceptPaymentComponent } from './accept-payment/accept-payment.component';
+import { SharePaymentComponent } from './share-payment/share-payment.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'acceptpayment',
     component: AcceptPaymentComponent,
+  },
+  {
+    path: 'sharepayment',
+    component: SharePaymentComponent,
   },
   {
     path: '**',
